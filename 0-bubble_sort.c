@@ -31,4 +31,4 @@ void bubble_sort(int *array, size_t size)
 		if (x == 1)
 			break;
 	}
-}
+
