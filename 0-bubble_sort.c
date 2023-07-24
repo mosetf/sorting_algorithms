@@ -1,37 +1,34 @@
 #include "sort.h"
-
 /**
- *bubble_sort - sorts an array
- *@array: the array to be sorted
- *@size: the arrays size
- *
+ * bubble_sort - sorts an array
+ * @array: array to bé sorted
+ * @size: size of the array
  */
 void bubble_sort(int *array, size_t size)
 {
-    int x = 0;
-    int temp;
-    size_t i = 0;
+	size_t i;
+	size_t n = size;
+	int temp, x;
 
-    while (i < size - 1)
-    {
-        size_t j = 0;
-        while (j < size - 1 - i)
-        {
-            if (array[j] > array[j + 1])
-            {
-                temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-                x = 1;
-            }
-            j++;
-        }
+	if (array == NULL || size < 2)
+		return;
 
-        if (x == 0)
-        {
-            break;
-        }
-
-        i++;
-    }
+	while (n)
+	{
+		x = 0;
+		for (i = 0; i < n - 1; i++)
+		{
+			if (array[i] > array[i + 1])
+			{
+				temp = array[i + 1];
+				array[i + 1] = array[i];
+				array[i] = temp;
+				print_array(array, size);
+				x = 1;
+			}
+		}
+		n--;
+		if (x == 1)
+			break;
+	}
 }
